@@ -17,6 +17,7 @@ public class Test_01 {
 
     @BeforeAll
     public void SetUp() {
+
         PropertyConfigurator.configure(log4jConfPath);
         System.setProperty("java.net.useSystemProxies", "true");
 
@@ -26,7 +27,6 @@ public class Test_01 {
         driver = new ChromeDriver(options);
         this.pagini = new PaginaInicio(driver);
     }
-
     @AfterAll
     public void tear(){
         driver.close();
