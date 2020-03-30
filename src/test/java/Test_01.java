@@ -1,3 +1,4 @@
+import PO.BasePage;
 import PO.PaginaInicio;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.log4j.PropertyConfigurator;
@@ -14,6 +15,7 @@ public class Test_01 {
     String log4jConfPath = "./src/test/resources/log4j.properties";
     WebDriver driver;
     PaginaInicio pagini;
+    BasePage base;
 
     @BeforeAll
     public void SetUp() {
@@ -26,6 +28,7 @@ public class Test_01 {
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
         this.pagini = new PaginaInicio(driver);
+        this.base = new BasePage(driver);
     }
     @AfterAll
     public void tear(){
@@ -40,6 +43,7 @@ public class Test_01 {
     @Test
     @Order(1)
     public void Paso1() {
+        base.Log("Se inicia prueba");
         pagini.IngresoPagina();
     }
 
